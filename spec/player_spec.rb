@@ -1,15 +1,12 @@
-require 'player'
+require 'player.rb'
 
-describe Player do
-  subject(:player) { Player.new(Hand.new, 100) }
-
-  it "has a hand" do
-    expect(player.hand).to be_a(Hand)
+RSpec.describe Player do
+  describe "#initialize" do
+    it "creates a new player with hand and pot" do
+      hand = double('hand')
+      player = Player.new(hand, 100)
+      expect(player.hand).to eq(hand)
+      expect(player.pot).to eq(100)
+    end
   end
-
-  it "has a pot" do
-    expect(player.pot).to be_a(Integer)
-  end
-
-  # other methods for player actions
 end

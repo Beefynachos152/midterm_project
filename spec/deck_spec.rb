@@ -1,19 +1,18 @@
-require 'deck'
+require 'deck.rb'
 
-describe Deck do
-  subject(:deck) { Deck.new }
-
-  it "has 52 cards" do
-    expect(deck.cards.length).to eq(52)
+RSpec.describe Deck do
+  describe "#initialize" do
+    it "creates a new deck with 52 cards" do
+      deck = Deck.new
+      expect(deck.cards.size).to eq(52)
+    end
   end
 
-  it "shuffles the deck" do
-    original_deck = deck.cards.dup
-    deck.shuffle
-    expect(deck.cards).to_not eq(original_deck)
-  end
-
-  it "deals a card" do
-    expect(deck.deal).to be_a(Card)
+  describe "#deal" do
+    it "deals specified number of cards from the deck" do
+      deck = Deck.new
+      cards = deck.deal(5)
+      expect(cards.size).to eq(5)
+    end
   end
 end

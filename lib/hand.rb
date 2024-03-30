@@ -1,7 +1,13 @@
+require_relative 'card'
+
 class Hand
-    def initialize(cards)
-      @cards = cards
-    end
-  
-    # other methods to determine hand strength
+  attr_reader :cards
+
+  def initialize(cards)
+    @cards = cards
+  end
+
+  def evaluate
+    @cards.size
+  end
 end

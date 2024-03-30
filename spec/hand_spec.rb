@@ -1,11 +1,11 @@
-require 'hand'
+require'hand.rb'
 
-describe Hand do
-  subject(:hand) { Hand.new([Card.new(:spades, :king), Card.new(:hearts, :queen)]) }
-
-  it "contains cards" do
-    expect(hand.cards).to all(be_a(Card))
+RSpec.describe Hand do
+  describe "#initialize" do
+    it "creates a new hand with cards" do
+      cards = [double('card1'), double('card2')]
+      hand = Hand.new(cards)
+      expect(hand.cards).to eq(cards)
+    end
   end
-
-  # other methods to test hand strength
 end

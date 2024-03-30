@@ -1,13 +1,11 @@
-require 'card'
+require 'card.rb'
 
-describe Card do
-  subject(:card) { Card.new(:spades, :king) }
-
-  it "has a suit" do
-    expect(card.suit).to eq(:spades)
-  end
-
-  it "has a value" do
-    expect(card.value).to eq(:king)
+RSpec.describe Card do
+  describe "#initialize" do
+    it "creates a new card with suit and value" do
+      card = Card.new("Hearts", "Ace")
+      expect(card.suit).to eq("Hearts")
+      expect(card.value).to eq("Ace")
+    end
   end
 end
