@@ -1,21 +1,16 @@
-require_relative 'card'
+# Class to represent a playing card
+class Card
+    # Read-only access to suit and value
+    attr_reader :suit, :value
 
-class Deck
-  attr_reader :cards
+    # Initialization method
+    def initialize(suit, value)
+      @suit = suit  # Card's suit (e.g., Hearts, Diamonds)
+      @value = value  # Card's value (e.g., Ace, 2, 3, ...)
+    end
 
-  def initialize
-    @cards = generate_deck.shuffle
-  end
-
-  def deal(num)
-    cards.shift(num)
-  end
-
-  private
-
-  def generate_deck
-    suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-    values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
-    suits.product(values).map { |suit, value| Card.new(suit, value) }
-  end
+    # Method to represent card as a string
+    def to_s
+      "#{value} of #{suit}"  # e.g., "Ace of Hearts"
+    end
 end
